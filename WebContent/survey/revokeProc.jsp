@@ -6,11 +6,19 @@
 <%	
 	SurveyService service= new SurveyService(dao);
 	String userValues= request.getParameter("value");
+	String other= request.getParameter("other");
 	// , 를 기준으로 하나의 문자열을 나눠서 문자열 배열에 저장
 	String[] values = userValues.split(",");
+
 	
 	for (String value: values){
 		service.revoke(value);
+	}
+	if (other!=""){
+		if (service.selectCountByCountry(other)==1){
+			service.deleteZeroValue(other);
+		}
+		service.revoke(other);
 	}
 	
 	response.sendRedirect("main.jsp");

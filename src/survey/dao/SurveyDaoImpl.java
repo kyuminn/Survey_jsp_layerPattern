@@ -96,6 +96,45 @@ public class SurveyDaoImpl implements SurveyDao {
 		}
 		return result==1?true:false;
 	}
+
+	@Override
+	public int selectCountByCountry(String country) {
+		String sql="select count from survey where country=?";
+		ResultSet rs = null;
+		int id=-1;
+		try(Connection conn=connectionPool.getConnection();
+				PreparedStatement pstmt= conn.prepareStatement(sql);
+				){
+			pstmt.setString(1, country);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				id=rs.getInt(1);
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if (rs!=null) rs.close();
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return id;
+	}
+
+	@Override
+	public boolean deleteZeroValue(String country) {
+		String sql="delete from survey where country=?";
+		int result=-1;
+		try(Connection conn= connectionPool.getConnection();
+				PreparedStatement pstmt= conn.prepareStatement(sql)){
+			pstmt.setString(1, country);
+			result= pstmt.executeUpdate();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return result==1?true:false;
+	}
 	
 	
 

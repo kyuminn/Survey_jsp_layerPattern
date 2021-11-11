@@ -20,7 +20,7 @@
 				<input type="checkbox" name="country" value="미국">미국<br>
 				<input type="checkbox" name="country" value="영국">영국<br>
 				<input type="checkbox" name="country" value="스페인">스페인<br>
-				<input type="text" name="country" placeholder="기타(직접입력)-ex)미얀마" size="20"><br><br>
+				<input type="text" name="other" placeholder="기타(직접입력)-ex)미얀마" size="20"><br><br>
 				<input type="submit" value="투표하기" >
 				<button type="button" onclick="location.href='main.jsp'">메인으로</button>
 			

@@ -10,4 +10,6 @@ public interface SurveyDao {
 	public boolean initializeNewItem(String country);
 	public List<String> selectCountry();
 	public boolean revoke(String country);
+	public int selectCountByCountry(String country);
+	public boolean deleteZeroValue(String country);
 }

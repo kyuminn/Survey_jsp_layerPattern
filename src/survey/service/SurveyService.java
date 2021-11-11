@@ -35,4 +35,14 @@ public class SurveyService {
 	public boolean revoke(String country) {
 		return surveyDao.revoke(country);
 	}
+	
+	// country 값에 해당하는 id값 가져오기
+	public int selectCountByCountry(String country) {
+		return surveyDao.selectCountByCountry(country);
+	}
+	
+	// 새로 추가한 행 중에 count 값이 0이면 삭제하기
+	public boolean deleteZeroValue(String country) {
+		return surveyDao.deleteZeroValue(country);
+	}
 }
