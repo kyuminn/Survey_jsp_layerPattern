@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import="survey.*,java.util.*,survey.service.SurveyService" %>
 <jsp:useBean id="dao" class="survey.dao.SurveyDaoImpl"/>
-<!--  SurveyDao dao = new SurveyDaoImpl(); -->
+
     
 <%
 SurveyService service = new SurveyService(dao);

@@ -12,6 +12,7 @@ public class SurveyService {
 		this.surveyDao=surveydao;
 	}
 	
+	// country 에 해당하는 나라의  count=count+1
 	public boolean vote(String country) {
 		return surveyDao.vote(country);
 	}
@@ -20,15 +21,18 @@ public class SurveyService {
 		return surveyDao.selectAll();
 	}
 	
-	public void initializeNewItem(String country) {
-		surveyDao.initializeNewItem(country);
+	// DB에 없는 나라이름 입력했을 때 새로운 행 추가, count 1로 설정
+	public boolean initializeNewItem(String country) {
+		return surveyDao.initializeNewItem(country);
 	}
 	
+	// DB에 있는 나라이름 가져오기
 	public List<String> selectCountry(){
 		return surveyDao.selectCountry();
 	}
 	
-	public void revoke(String country) {
-		surveyDao.revoke(country);
+	// 설문 취소
+	public boolean revoke(String country) {
+		return surveyDao.revoke(country);
 	}
 }

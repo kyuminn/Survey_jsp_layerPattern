@@ -53,7 +53,7 @@ public class SurveyDaoImpl implements SurveyDao {
 	}
 
 	@Override
-	public void initializeNewItem(String country) {
+	public boolean initializeNewItem(String country) {
 		String sql="insert into survey values (survey_seq.nextval,?,1)";
 		int result=-1;
 		try(Connection conn= connectionPool.getConnection();
@@ -63,7 +63,7 @@ public class SurveyDaoImpl implements SurveyDao {
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}
-		
+		return result==1? true :false;
 	}
 
 	@Override
@@ -84,7 +84,7 @@ public class SurveyDaoImpl implements SurveyDao {
 	}
 
 	@Override
-	public void revoke(String country) {
+	public boolean revoke(String country) {
 		String sql="update survey set count=count-1 where country=? ";
 		int result=-1;
 		try(Connection conn= connectionPool.getConnection();
@@ -94,7 +94,7 @@ public class SurveyDaoImpl implements SurveyDao {
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}
-		
+		return result==1?true:false;
 	}
 	
 	
