@@ -37,11 +37,11 @@
 		<tr> 
 			<td colspan="2" align="center">
 				<button type="button" onclick="location.href='main.jsp'">메인으로</button>
-				<%-- main.jsp에서 바로 넘어온것처럼 설문조사를 수행하지 않고 결과보기로 넘어왔을때는  값이 넘어오지 않았기 때문에 조건에 따라 
+				<%-- 설문조사를 수행하지 않고 결과보기로 넘어왔을때는  값이 넘어오지 않았기 때문에 조건에 따라 
 				설문 취소 버튼이 보이게끔 구현함! --%>
 				<%if (request.getParameter("country")!=null || other!=null){%>
 				<input type="button" onclick="location.href='revokeProc.jsp?value=<%=userValues%>&other=<%=other %>'" value="설문 취소">
-				<%-- 사용자가 선택한 값을 value라는 이름의 파라미터로 넘겨주기 --%>
+				<%-- 사용자가 선택한 값을 value, 입력한 값은 other라는 이름의 파라미터로 넘겨주기 --%>
 				<%} %>
 			</td>
 		</tr>

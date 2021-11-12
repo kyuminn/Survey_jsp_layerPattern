@@ -9,6 +9,11 @@
 	legend {
 		color:blue;
 	}
+	
+	button {
+		background-color:blue;
+		color:white;
+		}
 </style>
 </head>
 <body>
