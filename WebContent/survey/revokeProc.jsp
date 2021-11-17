@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@page import="survey.service.SurveyService" %>
 <jsp:useBean id="dao" class="survey.dao.SurveyDaoImpl"/>
+<%// useBean의 경우 default 생성자 (public,매개변수 없음)이 있어야 사용할 수 있음 %>
 
 <%	
 	SurveyService service= new SurveyService(dao);
